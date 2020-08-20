@@ -13,7 +13,9 @@ engine.setProperty('rate', 180)     # setting up new voice rate
 voices = engine.getProperty('voices')       #getting details of current voice
 engine.setProperty('voice', voices[1].id)   #changing index, changes voices.
 
-print('''Welcome to my program - Anu ''')
+
+pyttsx3.speak("Welcome to my program. I am happy to HELP you!!")
+print('''=======>> Welcome to my program <<=======  ''')
 pyttsx3.speak("Welcome to my program. I am happy to HELP you!!")
 
 
@@ -34,17 +36,20 @@ wish()
 thank = ("Thank You Vimal Daga Sir,        for this oppurtunity.    I have got to LEARN many things from YOU.")
 while True:
     pyttsx3.speak("How can I help you ?")
-    print("Enter the task you wish to perform :- ",end='')
+    print("                    ")
+    print("Enter the application you want to run :- ",end='')
     pyttsx3.speak("Or I  can  be your friend.   You can talk to me !")
     ip=input().lower()
 
     if (("run" in ip) or ("launch") or ("open")) and ( ("chrome" in ip) or ("google" in ip)):
-        speak("Opening Google Chrome with a new tab.")
+        engine= pyttsx3.init()
+        engine.say("Opening Google Chrome with a new tab.")
+        engine.runAndWait()
         os.system("chrome")
 
     
     elif (("run" in ip) or ("launch") or ("open")) and ( ("whatsapp" in ip) ):
-        speak("Opening Whatsapp for you.")
+        speak("Opening Whatsapp for you ")
         os.system("WhatsApp")
 
 
@@ -71,10 +76,9 @@ while True:
         os.system("notepad")
 
     elif (("run" in ip) or ("open" in ip) or ("launch" in ip)) and (("wordpad" in ip) or ("wordpad-editor" in ip)):
-        speak("Opening a unsaved Wordpad ")
+        speak("Opening a unsaved Wordpad.")
         os.system("wordpad")
 
-    
     elif (("run" in ip) or ("open" in ip) or ("launch" in ip)) and (("editor" in ip) or ("text" in ip)):
         speak("Two editors detected. Notepad and Wordpad. Which one to open?")
         print("1. Notepad \t 2.Wordpad \t :- ", end='')
@@ -152,7 +156,7 @@ while True:
 
     elif ("who are you" in ip) or ("about you" in ip) or ("your details" in ip) or ("something about you" in ip):
       about = ("I am a computer program based on Artificial Intelligence.      I am here to help you to browse the web applications you love to visit frequently, also I can be our close friend who just listen to our commands.              HAVE A GREAT DAY!!")
-      print("I am a computer program based on Artificial Intelligence.","/n", "I am here to help you to browse the web applications you love to visit frequently, also I can be your close friend who just listen to your commands.","/n","HAVE A GREAT DAY!!")
+      print("I am a computer program based on Artificial Intelligence." "I am here to help you to browse the web applications you love to visit frequently, also I can be your close friend who just listen to your commands.","HAVE A GREAT DAY!!")
       speak(about)
 
     elif("play song" in ip) or ("songs" in ip):
@@ -182,38 +186,44 @@ while True:
 
     elif ("math" in ip):
         speak("These are the mathematical operation I can help you with:")
-        print("1. Sum of numbers","\n", "2. Maximun item of the list","\n", "3. Minimum item of the list","\n","4. Power of a number","\n", "5. Reversed Iterator of a sequence","\n", "6. Sorting of given iterable")
+        print("1. Sum of numbers",'\n', "2. Maximun item of the list","\n", "3. Minimum item of the list","\n","4. Power of a number","\n", "5. Reversed Iterator of a sequence","\n", "6. Sorting of given iterable")
         speak("Give your choice")
         ch = int(input())
         if (ch == 1):
             speak("Enter the numbers which you want to add")
             a = set(map(int, input().split()))
+            speak("Here is your result")
             print(sum(a))
         
         elif (ch == 2):
             speak("Enter the numbers in the list")
             b = set(map(int, input().split()))
+            speak("Here is your result")
             print(max(b))
         
         elif (ch == 3):
             speak("Enter the numbers in the list")
             c = set(map(int, input().split()))
+            speak("Here is your result") 
             print(min(c))
 
         elif (ch == 4):
             speak("Provide the base and power in order")
             x = int(input())
             y = int(input())
+            speak("Here is your result")
             print(pow(x,y))
 
         elif(ch == 5):
             speak("Provide the iterator")
             i = list(map(int, input().split()))
+            speak("Here is your result")
             print(list(reversed(i)))
 
         elif( ch == 6):
             speak("Can I have the elments")
             ele = set(map(int, input().split()))
+            speak("Here is your result")
             print(sorted(ele, key = None , reverse = False))
 
         else:
@@ -228,4 +238,5 @@ while True:
       speak(res_g)
       webbrowser.open(geturl+temp) 
       break
+
 
