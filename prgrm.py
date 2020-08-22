@@ -101,6 +101,10 @@ while True:
         speak("Opening VLC Player")
         os.system("vlc")
 
+    elif ("open" in ip) and (('calc' in ip) or ("calculator" in ip)):
+        speak("opening calculator")
+        os.system("calc")
+
     elif (("run" in ip) or ("open" in ip) or ("launch" in ip)) and (("mediaplayer" in ip) or ("media" in ip) or ("player" in ip)):
         speak("Two media players detected. VLC and Windows Media Player. Which one to open?")
         print("1. VLC\t 2.Windows Media Player \t :- ", end='')
@@ -118,6 +122,16 @@ while True:
     elif (("run" in ip) or ("open" in ip) or ("launch" in ip)) and (("python" in ip) or ("prompt" in ip)):
         speak("Opening Python Prompt")
         os.system("python")
+
+    elif ("date" in ip):
+        speak("Today's Date is:")
+        os.system(date)
+
+    elif ("time" in ip):
+        speak("Current time in your location is:")
+        os.system(time)
+
+    
  
     #elif (("run" in ip) or ("open" in ip) or ("launch" in ip)) and (("xampp" in ip) or ("xampp-control" in ip)):
        # speak("Opening Xampp Controller")
@@ -130,6 +144,34 @@ while True:
     elif (("run" in ip) or ("launch") or ("open")) and ( ("skype" in ip) ):
         speak("You would like me to open Skype for you?   Here you go.")
         os.system("Skype")
+
+    elif(("run" in ip) or ("launch") or ("open")) and (("insta" in ip) or ("instagram" in ip)):
+        speak("Ohh !! That's a great choice. Here is your instagram.")
+        webbrowser.open("https://www.instagram.com")
+
+    elif(("run" in ip) or ("launch") or ("open")) and (("fb" in ip) or ("facebook" in ip)):
+        speak("Here you go! The facebook webpage is opening for you")
+        webbrowser.open("https://www.facebook.com")
+
+    elif(("run" in ip) or ("launch") or ("open")) and (("linkedin" in ip)):
+        speak("Here you go! The LinkedIn page is opening for you")
+        webbrowser.open("https://www.linkedin.com/feed")
+
+    elif(("run" in ip) or ("launch") or ("open")) and (("mail" in ip) or ("gmail" in ip)):
+        speak("Here is your gmail inbox with all unread mails:")
+        webbrowser.open("https://mail.google.com/mail/u/1/#inbox")
+
+    elif(("compose" in ip) and (("mail" in ip) or ("gmail" in ip))):
+         speak("This helps you to compose the mail:")
+         webbrowser.open("https://mail.google.com/mail/u/1/#inbox/FMfcgxwJXVMdrLsZMNWWHwWBDfDMsXGZ?compose=new")
+
+    elif (("display" in ip) or ("open" in ip)) and (("task" in ip) or ("programs" in ip)):              
+      donot(ip)
+      speak("Here are all the currently running task for you")
+      os.system("tasklist")
+
+    
+
 
     elif (("run" in ip) or ("open" in ip) or ("launch" in ip)) and (("candycrush" in ip) or ("candy" in ip) or ("crush" in ip)):
         speak("Opening the candy crush game application for you!")
